@@ -21,10 +21,12 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @ToString(exclude = {"password", "verificationCode"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", updatable = false, nullable = false, columnDefinition = "UUID")
+    @EqualsAndHashCode.Include
     private UUID id;
 
     @Column(name = "email", length = 100, nullable = false, unique = true)
@@ -63,17 +65,4 @@ public class User {
     @LastModifiedDate
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User other = (User) o;
-        return id != null && id.equals(other.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return (id != null) ? id.hashCode() : super.hashCode();
-    }
 }
