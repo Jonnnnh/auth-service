@@ -1,1 +1,41 @@
-spring.application.name=auth-spring
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth_db
+    username: postgres
+    password: pass
+    jpa:
+      hibernate:
+        ddl-auto: none
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:MAIL_USERNAME}
+    password: ${MAIL_PASSWORD:MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+          ssl:
+            trust: smtp.gmail.com
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: false
+    placeholder-replacement: false
+
+jwt:
+  secret: ${JWT_SECRET:TEST_SECRET}
+  expiration: 900000
+  refreshExpiration: 604800000
+
+confirmation:
+  expirationMinutes: 5
+  codeLength: 4
+  cleanup:
+    interval: 600000
+    passwordResetInterval: 600000
