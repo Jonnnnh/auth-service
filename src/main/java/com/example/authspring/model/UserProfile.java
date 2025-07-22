@@ -35,9 +35,6 @@ public class UserProfile {
     @Column(name = "birthday")
     private LocalDate birthday;
 
-    @Column(name = "avatar_url")
-    private String avatarUrl;
-
     @CreatedDate
     @Column(name = "created_at", updatable = false, nullable = false)
     private Instant createdAt;
