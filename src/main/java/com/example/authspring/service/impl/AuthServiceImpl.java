@@ -71,7 +71,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public MessageResponse logout(TokenRefreshRequest request) {
+    public MessageResponse logout() {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Пользователь", "email", email));
