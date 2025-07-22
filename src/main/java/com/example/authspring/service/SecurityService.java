@@ -7,4 +7,5 @@ public interface SecurityService {
 
     User getCurrentUser();
 
+    Long getUserProfileId();
 }
