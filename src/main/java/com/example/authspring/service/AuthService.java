@@ -11,5 +11,5 @@ public interface AuthService {
 
     TokenRefreshResponse refresh(TokenRefreshRequest request);
 
-    MessageResponse logout();
+    MessageResponse logout(TokenRefreshRequest request);
 }
