@@ -33,7 +33,11 @@ public class SecurityConfig {
             "/auth/login",
             "/auth/resend-confirmation",
             "/auth/password-reset/**",
-            "/auth/refresh"
+            "/auth/refresh",
+            "/v3/api-docs/**",
+            "/swagger-ui.html",
+            "/swagger-ui/**",
+            "/webjars/swagger-ui/**"
     };
 
     @Bean
