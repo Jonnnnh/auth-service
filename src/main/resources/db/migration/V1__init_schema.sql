@@ -1,4 +1,4 @@
-CREATE TYPE user_role_enum AS ENUM ('ADMIN', 'PREMIUM_USER', 'QUEST');
+CREATE TYPE user_role_enum AS ENUM ('ADMIN', 'PREMIUM_USER', 'GUEST');
 
 CREATE TYPE confirmation_action_enum AS ENUM (
     'REGISTRATION',
