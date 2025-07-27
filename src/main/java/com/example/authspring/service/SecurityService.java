@@ -6,6 +6,4 @@ public interface SecurityService {
     String getCurrentUserEmail();
 
     User getCurrentUser();
-
-    Long getUserProfileId();
 }

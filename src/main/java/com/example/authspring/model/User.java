@@ -20,7 +20,7 @@ import java.util.UUID;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
-@ToString(exclude = {"password", "verificationCode"})
+@ToString(exclude = {"password"})
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
     @Id
@@ -45,18 +45,8 @@ public class User {
     )
     @Column(name = "role", columnDefinition = "user_role_enum")
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     private Set<Role> roles = new HashSet<>();
-
-    @Column(name = "is_verified", nullable = false)
-    @Builder.Default
-    private Boolean isVerified = false;
-
-    @Column(name = "verification_code", length = 10)
-    private String verificationCode;
-
-    @Column(name = "is_active", nullable = false)
-    @Builder.Default
-    private Boolean isActive = true;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false, nullable = false)

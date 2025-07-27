@@ -38,6 +38,11 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.UNAUTHORIZED.value(), "Неверные учётные данные");
     }
 
+    @ExceptionHandler(TokenValidationException.class)
+    public ResponseEntity<ErrorResponse> handleTokenValidation(TokenValidationException ex) {
+        return build(HttpStatus.UNAUTHORIZED.value(), ex.getMessage());
+    }
+
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ErrorResponse> handleAccessDenied(AccessDeniedException ex) {
         return build(HttpStatus.FORBIDDEN.value(), "Нет прав для доступа");

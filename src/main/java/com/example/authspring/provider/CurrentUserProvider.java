@@ -2,8 +2,6 @@ package com.example.authspring.provider;
 
 import com.example.authspring.exception.ResourceNotFoundException;
 import com.example.authspring.model.User;
-import com.example.authspring.model.UserProfile;
-import com.example.authspring.repository.UserProfileRepository;
 import com.example.authspring.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Scope;
@@ -21,11 +19,9 @@ import org.springframework.web.context.WebApplicationContext;
 public class CurrentUserProvider {
 
     private final UserRepository userRepository;
-    private final UserProfileRepository userProfileRepository;
 
     private String email;
     private User user;
-    private Long userProfileId;
 
     public String getEmail() {
         if (email == null) {
@@ -49,13 +45,4 @@ public class CurrentUserProvider {
         return user;
     }
 
-    public Long getCurrentUserProfileId() {
-        if (userProfileId == null) {
-            UserProfile profile = userProfileRepository.findByUserEmail(getEmail())
-                    .orElseThrow(() ->
-                            new ResourceNotFoundException("Профиль клиента для пользователя " + getEmail()));
-            userProfileId = profile.getId();
-        }
-        return userProfileId;
-    }
 }

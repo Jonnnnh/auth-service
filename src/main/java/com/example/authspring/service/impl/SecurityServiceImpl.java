@@ -22,8 +22,4 @@ public class SecurityServiceImpl implements SecurityService {
         return userProv.getUser();
     }
 
-    @Override
-    public Long getUserProfileId() {
-        return userProv.getCurrentUserProfileId();
-    }
 }

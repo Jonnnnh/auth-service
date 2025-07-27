@@ -27,12 +27,6 @@ public class UserDto {
     @Schema(description = "Набор ролей пользователя")
     private Set<Role> roles;
 
-    @Schema(description = "Флаг верификации аккаунта", example = "false")
-    private Boolean isVerified;
-
-    @Schema(description = "Флаг активности аккаунта", example = "true")
-    private Boolean isActive;
-
     @Schema(description = "Дата и время создания пользователя", example = "2025-07-21T15:30:00Z")
     private Instant createdAt;
 
