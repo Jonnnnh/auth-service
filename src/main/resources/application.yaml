@@ -9,18 +9,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: ${MAIL_USERNAME:MAIL_USERNAME}
-    password: ${MAIL_PASSWORD:MAIL_PASSWORD}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls.enable: true
-          ssl:
-            trust: smtp.gmail.com
   flyway:
     enabled: false
     locations: classpath:db/migration
@@ -33,9 +21,9 @@ jwt:
   expiration: 900000
   refreshExpiration: 604800000
 
-confirmation:
-  expirationMinutes: 5
-  codeLength: 4
-  cleanup:
-    interval: 600000
-    passwordResetInterval: 600000
+logging:
+  level:
+    root: INFO
+    com.example.authservice: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"
