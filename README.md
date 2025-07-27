@@ -11,7 +11,7 @@
   - `alg: dir` (direct symmetric encryption)
   - `enc: A256CBC-HS512` (AES-256-CBC + HMAC-SHA-512)
 - Validation and decryption of JWE on the server (Nimbus JOSE + JWT)
-- Refresh tokens in the database with rotation** and forced revocation
+- Refresh tokens in the database with rotation and forced revocation
 - RBAC on roles (`ADMIN`, `PREMIUM_USER`, `GUEST`)
 - Swagger/OpenAPI UI
 - Docker Compose with PostgreSQL
